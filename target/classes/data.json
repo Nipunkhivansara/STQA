@@ -1,0 +1,24 @@
+{
+    "Register": [
+      {
+        "username": "John",
+        "password": "Berlin"
+      },
+      {
+        "username": "Mark",
+        "password": "Oslo"
+      }
+    ],
+    "Login": [
+      {
+        "name": "Jdn",
+        "city": "Berlin"
+      },
+      {
+        "name": "Mark",
+        "city": "Oslo"
+      }
+    ]
+}
+
+
