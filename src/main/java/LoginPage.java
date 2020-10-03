@@ -1,38 +1,32 @@
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
+public class LoginPage extends CommonUtility {
+    By Loginbtn= By.xpath("//*[contains(text(),'Log in')]");
+    By inputusertxt=By.xpath("//*[@id=\"loginForm\"]/div[1]/input");
+    By password=By.xpath("//*[@id=\"loginForm\"]/div[2]/input");
+    By homepageassertiontxt=By.xpath("/html/body/header/nav/a[2]");
+    By invalidassertiontxt=By.xpath("/html/body/div/div/div/div[2]/p");
+    By logoutbtn= By.xpath("//*[@id=\"sidebar\"]/ul/li[9]/a");
+    public String checkLogin(Map<String,String> data)
+    {
+        this.sendText(inputusertxt,data.get("username"));
+        this.sendText(password,data.get("password"));
+        this.clickOnBtn(Loginbtn);
+        if(data.get("loginStatus").equals("true"))
+        {
+            String a= this.getText(homepageassertiontxt);
+            this.clickOnBtn(logoutbtn);
+            return a;
+        }
+      else
+        {
+            return this.getText(invalidassertiontxt);
+        }
 
-public class LoginPage {
-
-
-    public String checkregistration(Map<String, String> data) {
-        WebDriver driver = new ChromeDriver();
-        driver.get("http://localhost:8000/register/");
-        WebElement element = driver.findElement(By.xpath("//input[@name='username']"));
-        element.sendKeys(data.get("username"));
-        WebElement button = driver.findElement(By.xpath("//button"));
-        button.click();
-        return (driver.findElement(By.xpath("/html/body/div/div/div/div[2]/p")).getText());
     }
+
 
 
 }

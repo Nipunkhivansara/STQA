@@ -1,13 +1,14 @@
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.Iterator;
 import java.util.Map;
 
-public class RegisterTest extends LoginPage {
+public class RegisterTest extends Registerpage
+{
 
     @DataProvider(name="register")
     public Object[][] register(){
@@ -18,8 +19,17 @@ public class RegisterTest extends LoginPage {
 
 @Test(dataProvider = "register")
  public void check_registration(Map<String,String> data)
-    {   System.out.println(data);
-        String a=this.checkregistration(data);
-        Assert.assertTrue(a.contains("Invalid"),"Ouput expected"+ "Invalid registration"+"but actual"+a);
-    }
+    {   this.driver.get("http://localhost:8000/register/");
+        System.out.println(data);
+        String a=checkRegistration(data);
+        if(data.get("password").equals("ks2334")) {
+            Assert.assertTrue(a.contains("Registered"), "Ouput expected" + "User registration" + "but actual" + a);
+        }
+        else
+        {
+            Assert.assertTrue(a.contains("Invalid"), "Ouput expected" + "Invalid registration" + "but actual" + a);
+
+        }
+
+        }
 }

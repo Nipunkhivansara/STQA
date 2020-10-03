@@ -7,16 +7,23 @@
       {
         "username": "Mark",
         "password": "Oslo"
+      },
+      {
+        "username": "PurJain",
+        "password": "ks2334"
       }
     ],
     "Login": [
       {
-        "name": "Jdn",
-        "city": "Berlin"
+        "username": "Karan",
+        "password": "TLLybk",
+        "loginStatus": "true"
       },
       {
-        "name": "Mark",
-        "city": "Oslo"
+        "username": "purvesh",
+        "password": "TLLybk",
+        "loginStatus": "false"
+
       }
     ]
 }
