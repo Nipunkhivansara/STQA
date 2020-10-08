@@ -4,11 +4,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
+import java.util.List;
+import java.util.Map;
+
 public class CommonUtility {
+    public By Loginbtn= By.xpath("//*[contains(text(),'Log in')]");
+    public By inputusertxt=By.xpath("//*[@id=\"loginForm\"]/div[1]/input");
+    public By password=By.xpath("//*[@id=\"loginForm\"]/div[2]/input");
     public static WebDriver driver;
     public CommonUtility() {
 
@@ -34,11 +41,31 @@ public class CommonUtility {
 
    }
    public String getText(By element)
-   {    WebDriverWait wait = new WebDriverWait(driver,30);
+   {    WebDriverWait wait = new WebDriverWait(driver,10);
        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
 
        return driver.findElement(element).getText();
    }
-
-
+    public List<WebElement> getList(By element)
+    {
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+        WebElement ele=driver.findElement(element);
+        Select select = new Select(ele);
+        java.util.List<WebElement> options = select.getOptions();
+        return options;
+    }
+    public void selectOption(By element,String text)
+    {
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+        Select ele = new Select(driver.findElement(element));
+        ele.selectByVisibleText(text);
+    }
+    public void Login(Map<String,String> data)
+    {
+        this.sendText(inputusertxt,data.get("username"));
+        this.sendText(password,data.get("password"));
+        this.clickOnBtn(Loginbtn);
+    }
 }

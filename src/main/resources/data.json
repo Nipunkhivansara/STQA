@@ -25,6 +25,23 @@
         "loginStatus": "false"
 
       }
+    ],
+  "buystock": [
+    {
+      "username": "Karan",
+      "password": "TLLybk",
+      "company": "Steerz Motors",
+      "quantity": "10"
+
+    }],
+    "logout": [
+      {
+        "username": "Karan",
+        "password": "TLLybk"
+
+
+      }
+
     ]
 }
 
