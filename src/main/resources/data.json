@@ -16,7 +16,7 @@
     "Login": [
       {
         "username": "Karan",
-        "password": "TLLybk",
+        "password": "pauv6h",
         "loginStatus": "true"
       },
       {
@@ -29,20 +29,30 @@
   "buystock": [
     {
       "username": "Karan",
-      "password": "TLLybk",
-      "company": "Steerz Motors",
+      "password": "pauv6h",
+      "company": "Corofy  ",
       "quantity": "10"
 
     }],
     "logout": [
       {
         "username": "Karan",
-        "password": "TLLybk"
+        "password": "pauv6h"
 
 
       }
 
-    ]
+
+
+    ],
+  "sellstock": [
+    {
+      "username": "Karan",
+      "password": "pauv6h",
+      "company": "Prudent National Bank",
+      "quantity": "5"
+    }
+  ]
 }
 
 
