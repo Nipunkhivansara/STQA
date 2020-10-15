@@ -14,4 +14,19 @@
             <class name = "LoginTest" />
         </classes>
     </test>
+    <test name = "BuyTest">
+        <classes>
+            <class name = "BuyTest" />
+        </classes>
+    </test>
+    <test name = "SellTest">
+        <classes>
+            <class name = "SellTest" />
+        </classes>
+    </test>
+    <test name = "LogoutTest">
+        <classes>
+            <class name = "LogoutTest" />
+        </classes>
+    </test>
 </suite>

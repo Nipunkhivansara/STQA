@@ -30,7 +30,7 @@
     {
       "username": "Karan",
       "password": "pauv6h",
-      "company": "Corofy  ",
+      "company": "Corofy",
       "quantity": "10"
 
     }],
@@ -38,11 +38,7 @@
       {
         "username": "Karan",
         "password": "pauv6h"
-
-
       }
-
-
 
     ],
   "sellstock": [

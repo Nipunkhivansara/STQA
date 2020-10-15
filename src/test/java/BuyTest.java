@@ -26,12 +26,15 @@ public class BuyTest extends BuyTransaction{
             WebDriverWait wait = new WebDriverWait(driver,30);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[2]/div[2]/div/section[1]/div/div[2]/div/div[1]/h2")));
             Assert.assertTrue(driver.getCurrentUrl().equals("http://localhost:8000/"),"Not directed to homepage ,buy order not executed");
+            this.driver.findElement(By.xpath("//*[@id=\"sidebar\"]/ul/li[9]/a/span")).click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"loginForm\"]/button")));
 
 
 
         } catch (Exception e) {
-            Assert.fail();
             e.printStackTrace();
+
+            Assert.fail();
         }
     }
 }
